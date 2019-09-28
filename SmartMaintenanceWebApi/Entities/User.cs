@@ -2,6 +2,7 @@
 
 namespace SmartMaintenanceWebApi.Entities
 {
+    //Model Class for User
     public class User
     {
         public int Id { get; set; }

@@ -11,6 +11,10 @@ using SmartMaintenanceWebApi.Helpers;
 
 namespace SmartMaintenanceWebApi.Services
 {
+    /*
+    An interface is like a contract. In the human world, the contract between the two or more humans binds them to act as per the contract. In the same way, the interface includes the declaration of one or more functionalities. Entities that implement the interface must define functionalities declared in the interface.
+    https://www.tutorialsteacher.com/csharp/csharp-interface
+    */
     public interface IUserService
     {
         User Authenticate(string username, string password);
@@ -20,6 +24,8 @@ namespace SmartMaintenanceWebApi.Services
 
     public class UserService : IUserService
     {
+
+
         // users hardcoded for simplicity, store in a db with hashed passwords in production applications
         private List<User> _users = new List<User>
         {
@@ -44,21 +50,26 @@ namespace SmartMaintenanceWebApi.Services
 
             // authentication successful so generate jwt token
             var tokenHandler = new JwtSecurityTokenHandler();
+            //get the signature
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
+                    //unique_name
                     new Claim(ClaimTypes.Name, user.Id.ToString()),
+                    //role
                     new Claim(ClaimTypes.Role, user.Role)
                 }),
-                Expires = DateTime.UtcNow.AddDays(7),
+                //exp
+                Expires = DateTime.UtcNow.AddDays(365),
+                //sign with signature, HMAC with SHA-256
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             user.Token = tokenHandler.WriteToken(token);
 
-            // remove password before returning
+            // remove password before returning, security
             user.Password = null;
 
             return user;

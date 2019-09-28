@@ -5,7 +5,7 @@ using SmartMaintenanceWebApi.Entities;
 
 namespace SmartMaintenanceWebApi.Controllers
 {
-
+    // 1 authorize for all the function under this class, except for those who has [AllowAnonymous] and specific role
     [Authorize]
     [ApiController]
     [Route("[controller]")]

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using SmartMaintenanceWebApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace SmartMaintenanceWebApi
 {
@@ -34,6 +35,18 @@ Configuration["Data:SmartMaintenanceIdentity:ConnectionString"]));
 options.UseSqlServer(
 Configuration["Data:SmartMaintenanceDatabase:ConnectionString"]));
 
+            //used the AddIdentity method to set up the Identity services using the built-in classes to represent users and roles.
+            services.AddIdentity<AppUser, IdentityRole>(opts =>
+            {
+                opts.User.RequireUniqueEmail = true;
+                //opts.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz";
+                //opts.Password.RequiredLength = 6;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            })
+            .AddEntityFrameworkStores<AppIdentityDbContext>();
 
             // Cross-Origin Requests (CORS)
             // https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-3.0
