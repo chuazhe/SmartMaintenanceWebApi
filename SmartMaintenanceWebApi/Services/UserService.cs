@@ -61,8 +61,8 @@ namespace SmartMaintenanceWebApi.Services
                     //role
                     new Claim(ClaimTypes.Role, user.Role)
                 }),
-                //exp
-                Expires = DateTime.UtcNow.AddDays(365),
+                // Expiration Time, the jwt token will update every second
+                Expires = DateTime.UtcNow.AddDays(30),
                 //sign with signature, HMAC with SHA-256
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
