@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\obj\Debug\netcoreapp2.2\SmartMaintenanceWebApi.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\obj\Debug\netcoreapp2.2\SmartMaintenanceWebApi.RazorAssemblyInfo.cache
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\obj\Debug\netcoreapp2.2\SmartMaintenanceWebApi.RazorAssemblyInfo.cs
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\obj\Debug\netcoreapp2.2\SmartMaintenanceWebApi.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\obj\Debug\netcoreapp2.2\SmartMaintenanceWebApi.AssemblyInfo.cs
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\bin\Debug\netcoreapp2.2\SmartMaintenanceWebApi.deps.json
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\bin\Debug\netcoreapp2.2\SmartMaintenanceWebApi.runtimeconfig.json
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\bin\Debug\netcoreapp2.2\SmartMaintenanceWebApi.runtimeconfig.dev.json
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\bin\Debug\netcoreapp2.2\SmartMaintenanceWebApi.dll
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\bin\Debug\netcoreapp2.2\SmartMaintenanceWebApi.pdb
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\obj\Debug\netcoreapp2.2\SmartMaintenanceWebApi.RazorTargetAssemblyInfo.cache
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\obj\Debug\netcoreapp2.2\SmartMaintenanceWebApi.dll
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\obj\Debug\netcoreapp2.2\SmartMaintenanceWebApi.pdb
+C:\Users\User\source\repos\SmartMaintenanceWebApi\SmartMaintenanceWebApi\obj\Debug\netcoreapp2.2\SmartMaintenanceWebApi.csprojAssemblyReference.cache
