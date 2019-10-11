@@ -1566,6 +1566,20 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
+      "Microsoft.Azure.NotificationHubs/3.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Memory": "2.1.2",
+          "Microsoft.IdentityModel.Tokens": "5.1.4",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Azure.NotificationHubs.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Azure.NotificationHubs.dll": {}
+        }
+      },
       "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
         "type": "package"
       },
@@ -6020,6 +6034,19 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.xml",
         "microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.webutilities.nuspec"
+      ]
+    },
+    "Microsoft.Azure.NotificationHubs/3.2.1": {
+      "sha512": "0DupUCw5wSGY25OHFs7kA6Pgdle+npef7xoxZx7e3ONwOOyCewAi/cLCO0ftnnx1rKWH7yqrcY/9zcmiIxGEQQ==",
+      "type": "package",
+      "path": "microsoft.azure.notificationhubs/3.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Azure.NotificationHubs.dll",
+        "lib/netstandard2.0/Microsoft.Azure.NotificationHubs.xml",
+        "microsoft.azure.notificationhubs.3.2.1.nupkg.sha512",
+        "microsoft.azure.notificationhubs.nuspec"
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
@@ -12932,6 +12959,7 @@
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
+      "Microsoft.Azure.NotificationHubs >= 3.2.1",
       "Microsoft.NETCore.App >= 2.2.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.3"
     ]
@@ -12987,6 +13015,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.2.0, )"
+          },
+          "Microsoft.Azure.NotificationHubs": {
+            "target": "Package",
+            "version": "[3.2.1, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",

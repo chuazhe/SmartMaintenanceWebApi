@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "9730342b7b575aaeb702fae13ca2a10b3cc123ef"
+    "signature": "2c5d5ece1910400d309eda823321a354b9b7be41"
   },
   "compilationOptions": {
     "defines": [
@@ -26,6 +26,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
+          "Microsoft.Azure.NotificationHubs": "3.2.1",
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.3"
         },
@@ -34,6 +35,22 @@
         },
         "compile": {
           "SmartMaintenanceWebApi.dll": {}
+        }
+      },
+      "Microsoft.Azure.NotificationHubs/3.2.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Memory": "2.2.0",
+          "Microsoft.IdentityModel.Tokens": "5.3.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Azure.NotificationHubs.dll": {
+            "assemblyVersion": "3.2.1.0",
+            "fileVersion": "3.2.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Azure.NotificationHubs.dll": {}
         }
       },
       "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
@@ -3543,6 +3560,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.Azure.NotificationHubs/3.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0DupUCw5wSGY25OHFs7kA6Pgdle+npef7xoxZx7e3ONwOOyCewAi/cLCO0ftnnx1rKWH7yqrcY/9zcmiIxGEQQ==",
+      "path": "microsoft.azure.notificationhubs/3.2.1",
+      "hashPath": "microsoft.azure.notificationhubs.3.2.1.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
       "type": "package",
