@@ -32,12 +32,12 @@ namespace SmartMaintenanceWebApi.Controllers
         }
         */
 
-        [HttpPost("zzz")]
-        public async Task<HttpResponseMessage> Post2()
+        [HttpPost("sendnoti")]
+        public async Task<HttpResponseMessage> Post2([FromBody] NotificationsMessage item)
         {
-            var user = "Test";
+            var user = "Test User";
             var pns = "fcm";
-            var message = "Test 2";
+            var message = item.msg;
 
             Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
             HttpStatusCode ret = HttpStatusCode.InternalServerError;
@@ -57,7 +57,7 @@ namespace SmartMaintenanceWebApi.Controllers
                     break;
                 case "fcm":
                     // Android
-                    var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
+                    var notif = "{ \"data\" : {\"message\":\"" + message + "\"}}";
                     outcome = await Notifications.Instance.Hub.SendFcmNativeNotificationAsync(notif);
                     break;
             }

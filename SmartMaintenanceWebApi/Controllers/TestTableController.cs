@@ -12,7 +12,7 @@ namespace SmartMaintenanceWebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize] JWT
     public class TestTableController : Controller
     {
 
