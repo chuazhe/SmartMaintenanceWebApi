@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 
 namespace SmartMaintenanceWebApi.Models
 {
-    public class Aircraft
+    public class Maintenance
     {
+        public int MaintenanceId { get; set; }
+
         public int AircraftId { get; set; }
 
-        public string AircraftName { get; set; }
+        public string MaintenanceDate { get; set; }
 
-        public int AircraftStatus { get; set; }
     }
 }

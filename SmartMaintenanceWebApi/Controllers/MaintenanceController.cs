@@ -12,19 +12,26 @@ namespace SmartMaintenanceWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PartController : Controller
+    public class MaintenanceController : ControllerBase
     {
 
-        private readonly PartContext _context;
+        private readonly MaintenanceContext _context;
 
-        public PartController(PartContext context)
+        public MaintenanceController(MaintenanceContext context)
         {
             this._context = context;
-
         }
 
+        // GET: api/<controller>
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Maintenance>>> GetAll()
+        {
+            return await _context.Maintenance.ToListAsync();
+        }
+
+
         /*
-        // GET: api/Part
+        // GET: api/Maintenance
         [HttpGet]
         public IEnumerable<string> Get()
         {
@@ -32,16 +39,8 @@ namespace SmartMaintenanceWebApi.Controllers
         }
         */
 
-        // GET: api/<controller>
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Part>>> GetAll()
-        {
-            return await _context.Part.ToListAsync();
-        }
-
-
-        /*
-        // GET: api/Part/5
+            /*
+        // GET: api/Maintenance/5
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
@@ -49,34 +48,13 @@ namespace SmartMaintenanceWebApi.Controllers
         }
         */
 
-        // POST: api/Part
+        // POST: api/Maintenance
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-
-        // PUT: api/Order/5
-        [HttpPut("add/{id}")]
-        public async Task<IActionResult> AddAsync(int id)
-        {
-
-            var todoItem = await _context.Part.FindAsync(id);
-
-            if (todoItem != null)
-            {
-
-                todoItem.PartCount += 2;
-                _context.Entry(todoItem).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-
-                return Ok();
-            }
-            return NotFound();
-
-        }
-
-        // PUT: api/Part/5
+        // PUT: api/Maintenance/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {

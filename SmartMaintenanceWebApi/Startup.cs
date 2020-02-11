@@ -43,6 +43,14 @@ Configuration["Data:SmartMaintenanceDatabase:ConnectionString"]));
 options.UseSqlServer(
 Configuration["Data:SmartMaintenanceDatabase:ConnectionString"]));
 
+            services.AddDbContext<MaintenanceContext>(options =>
+options.UseSqlServer(
+Configuration["Data:SmartMaintenanceDatabase:ConnectionString"]));
+
+            services.AddDbContext<OrderContext>(options =>
+options.UseSqlServer(
+Configuration["Data:SmartMaintenanceDatabase:ConnectionString"]));
+
             //used the AddIdentity method to set up the Identity services using the built-in classes to represent users and roles.
             services.AddIdentity<AppUser, IdentityRole>(opts =>
             {

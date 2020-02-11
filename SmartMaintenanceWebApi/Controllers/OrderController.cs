@@ -12,19 +12,26 @@ namespace SmartMaintenanceWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PartController : Controller
+    public class OrderController : Controller
     {
 
-        private readonly PartContext _context;
+        private readonly OrderContext _context;
 
-        public PartController(PartContext context)
+        public OrderController(OrderContext context)
         {
             this._context = context;
+        }
 
+
+        // GET: api/<controller>
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Order>>> GetAll()
+        {
+            return await _context.Order.ToListAsync();
         }
 
         /*
-        // GET: api/Part
+        // GET: api/Order
         [HttpGet]
         public IEnumerable<string> Get()
         {
@@ -32,16 +39,8 @@ namespace SmartMaintenanceWebApi.Controllers
         }
         */
 
-        // GET: api/<controller>
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Part>>> GetAll()
-        {
-            return await _context.Part.ToListAsync();
-        }
-
-
-        /*
-        // GET: api/Part/5
+            /*
+        // GET: api/Order/5
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
@@ -49,24 +48,23 @@ namespace SmartMaintenanceWebApi.Controllers
         }
         */
 
-        // POST: api/Part
+        // POST: api/Order
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-
         // PUT: api/Order/5
-        [HttpPut("add/{id}")]
-        public async Task<IActionResult> AddAsync(int id)
+        [HttpPut("approve/{id}")]
+        public async Task<IActionResult> ApproveAsync(int id)
         {
 
-            var todoItem = await _context.Part.FindAsync(id);
+            var todoItem = await _context.Order.FindAsync(id);
 
             if (todoItem != null)
             {
 
-                todoItem.PartCount += 2;
+                todoItem.OrderApprove = 1;
                 _context.Entry(todoItem).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
 
@@ -74,12 +72,6 @@ namespace SmartMaintenanceWebApi.Controllers
             }
             return NotFound();
 
-        }
-
-        // PUT: api/Part/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
         }
 
         // DELETE: api/ApiWithActions/5
