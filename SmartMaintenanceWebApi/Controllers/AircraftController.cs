@@ -40,12 +40,14 @@ namespace SmartMaintenanceWebApi.Controllers
             return await _context.Aircraft.ToListAsync();
         }
 
+        /*
         // GET: api/Aircraft/5
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
             return "value";
         }
+        */
 
         // POST: api/Aircraft
         [HttpPost]

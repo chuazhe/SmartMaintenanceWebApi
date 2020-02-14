@@ -4,43 +4,32 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using SmartMaintenanceWebApi.Models;
-
 
 namespace SmartMaintenanceWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderController : Controller
+    public class MaintenancePartController : ControllerBase
     {
 
-        private readonly OrderContext _context;
+        private readonly MaintenancePartContext _context;
 
-        public OrderController(OrderContext context)
+        public MaintenancePartController(MaintenancePartContext context)
         {
             this._context = context;
         }
 
 
-        // GET: api/<controller>
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetAll()
-        {
-            return await _context.Order.ToListAsync();
-        }
-
         /*
-        // GET: api/Order
+        // GET: api/MaintenancePart
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
-        */
 
-            /*
-        // GET: api/Order/5
+        // GET: api/MaintenancePart/5
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
@@ -48,22 +37,13 @@ namespace SmartMaintenanceWebApi.Controllers
         }
         */
 
-        // POST: api/Order
-        /*
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-        */
-
         // POST: api/<controller>
         [HttpPost("create")]
-        public async Task<ActionResult<Order>> CreateOrder([FromBody] Order item)
+        public async Task<ActionResult<MaintenancePart>> CreateMaintenancePart([FromBody] MaintenancePart item)
         {
             try
             {
-                item.OrderId=getTopId() + 1;
-                _context.Order.Add(item);
+                _context.MaintenancePart.Add(item);
                 await _context.SaveChangesAsync();
                 /*
                 return StatusCode(200);
@@ -83,31 +63,16 @@ namespace SmartMaintenanceWebApi.Controllers
             //return CreatedAtAction(nameof(Get), new { id = item.Id, name=item.Name}, item);
         }
 
-        [HttpGet("gettop")]
-        public int getTopId()
+        // POST: api/MaintenancePart
+        [HttpPost]
+        public void Post([FromBody] string value)
         {
-            var x = _context.Order.Last().OrderId;
-            return x;
         }
 
-        // PUT: api/Order/5
-        [HttpPut("approve/{id}")]
-        public async Task<IActionResult> ApproveAsync(int id)
+        // PUT: api/MaintenancePart/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
         {
-
-            var todoItem = await _context.Order.FindAsync(id);
-
-            if (todoItem != null)
-            {
-
-                todoItem.OrderApprove = 1;
-                _context.Entry(todoItem).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-
-                return Ok();
-            }
-            return NotFound();
-
         }
 
         // DELETE: api/ApiWithActions/5
