@@ -49,6 +49,44 @@ namespace SmartMaintenanceWebApi.Controllers
         }
         */
 
+        [HttpPut("maintenance/{id}")]
+        public async Task<IActionResult> MaintenanceAsync(int id)
+        {
+
+            var todoItem = await _context.Aircraft.FindAsync(id);
+
+            if (todoItem != null)
+            {
+
+                todoItem.AircraftStatus = 0;
+                _context.Entry(todoItem).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            return NotFound();
+
+        }
+
+        [HttpPut("service/{id}")]
+        public async Task<IActionResult> ServiceAsync(int id)
+        {
+
+            var todoItem = await _context.Aircraft.FindAsync(id);
+
+            if (todoItem != null)
+            {
+
+                todoItem.AircraftStatus = 1;
+                _context.Entry(todoItem).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            return NotFound();
+
+        }
+
         // POST: api/Aircraft
         [HttpPost]
         public void Post([FromBody] string value)

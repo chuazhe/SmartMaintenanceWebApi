@@ -23,6 +23,10 @@ namespace SmartMaintenanceWebApi.Controllers
 
         }
 
+        public PartController()
+        {
+        }
+
         /*
         // GET: api/Part
         [HttpGet]
@@ -40,14 +44,24 @@ namespace SmartMaintenanceWebApi.Controllers
         }
 
 
-        /*
+        
         // GET: api/Part/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("getget")]
+        public async Task<IActionResult> GetgetAsync(int id, int count)
         {
-            return "value";
+            var todoItem = await _context.Part.FindAsync(id);
+
+            if (todoItem != null)
+            {
+                if(todoItem.PartCount>=count)
+                {
+                    return Ok(new { success = true });
+                }
+
+            }
+            return BadRequest();
         }
-        */
+
 
         // POST: api/Part
         [HttpPost]
@@ -58,7 +72,7 @@ namespace SmartMaintenanceWebApi.Controllers
 
         // PUT: api/Order/5
         [HttpPut("add/{id}")]
-        public async Task<IActionResult> AddAsync(int id)
+        public async Task<IActionResult> AddAsync(int id, int quantity)
         {
 
             var todoItem = await _context.Part.FindAsync(id);
@@ -66,7 +80,27 @@ namespace SmartMaintenanceWebApi.Controllers
             if (todoItem != null)
             {
 
-                todoItem.PartCount += 2;
+                todoItem.PartCount += quantity;
+                _context.Entry(todoItem).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            return NotFound();
+
+        }
+
+        // PUT: api/Order/5
+        [HttpPut("minus/{id}")]
+        public async Task<IActionResult> MinusAsync(int id, int quantity)
+        {
+
+            var todoItem = await _context.Part.FindAsync(id);
+
+            if (todoItem != null)
+            {
+
+                todoItem.PartCount -= quantity;
                 _context.Entry(todoItem).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
 

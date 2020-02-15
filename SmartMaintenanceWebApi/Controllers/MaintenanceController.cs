@@ -60,6 +60,7 @@ namespace SmartMaintenanceWebApi.Controllers
             try
             {
                 item.MaintenanceId = getTopId()+1;
+                item.MaintenanceUsed = 0;
                 _context.Maintenance.Add(item);
                 await _context.SaveChangesAsync();
 
@@ -86,6 +87,26 @@ namespace SmartMaintenanceWebApi.Controllers
         {
             var x = _context.Maintenance.Last().MaintenanceId;
             return x;
+        }
+
+
+        [HttpPut("usedmaintenance/{id}")]
+        public async Task<IActionResult> UsedMaintenanceAsync(int id)
+        {
+
+            var todoItem = await _context.Maintenance.FindAsync(id);
+
+            if (todoItem != null)
+            {
+
+                todoItem.MaintenanceUsed = 1;
+                _context.Entry(todoItem).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            return NotFound();
+
         }
 
 

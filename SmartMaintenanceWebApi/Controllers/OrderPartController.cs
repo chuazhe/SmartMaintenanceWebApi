@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SmartMaintenanceWebApi.Models;
 
 namespace SmartMaintenanceWebApi.Controllers
@@ -14,6 +15,8 @@ namespace SmartMaintenanceWebApi.Controllers
     {
 
         private readonly OrderPartContext _context;
+        private readonly PartContext _context2;
+
 
         public OrderPartController(OrderPartContext context)
         {
@@ -27,14 +30,18 @@ namespace SmartMaintenanceWebApi.Controllers
         {
             return new string[] { "value1", "value2" };
         }
+        */
 
         // GET: api/OrderPart/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public IEnumerable<OrderPart> GetAsync(int id)
         {
-            return "value";
+            var todoItem = _context.OrderPart.AsNoTracking().Where(s => s.OrderId == id).ToList();
+
+            return todoItem;
+
         }
-        */
+
 
         // POST: api/OrderPart
         [HttpPost]

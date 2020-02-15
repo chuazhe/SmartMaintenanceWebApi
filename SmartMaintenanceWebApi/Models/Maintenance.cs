@@ -13,5 +13,7 @@ namespace SmartMaintenanceWebApi.Models
 
         public string MaintenanceDate { get; set; }
 
+        public int MaintenanceUsed { get; set; }
+
     }
 }
