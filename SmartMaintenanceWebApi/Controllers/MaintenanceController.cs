@@ -30,7 +30,7 @@ namespace SmartMaintenanceWebApi.Controllers
         {
             return await _context.Maintenance.ToListAsync();
         }
-        
+
 
 
         /*
@@ -41,7 +41,7 @@ namespace SmartMaintenanceWebApi.Controllers
             return new string[] { "value1", "value2" };
         }
         */
-        
+
 
         /*
     // GET: api/Maintenance/5
@@ -51,6 +51,16 @@ namespace SmartMaintenanceWebApi.Controllers
         return "value";
     }
     */
+
+        // GET: api/OrderPart/5
+        [HttpGet("getspecific/{id}")]
+        public IEnumerable<Maintenance> GetAsync(int id)
+        {
+            var todoItem = _context.Maintenance.Where(s => s.MaintenanceId == id).ToList();
+
+            return todoItem;
+
+        }
 
 
         // POST: api/<controller>

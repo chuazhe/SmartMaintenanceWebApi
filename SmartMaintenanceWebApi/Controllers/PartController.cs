@@ -23,10 +23,6 @@ namespace SmartMaintenanceWebApi.Controllers
 
         }
 
-        public PartController()
-        {
-        }
-
         /*
         // GET: api/Part
         [HttpGet]
@@ -45,6 +41,17 @@ namespace SmartMaintenanceWebApi.Controllers
 
 
         
+        // GET: api/OrderPart/5
+        [HttpGet("getspecificname/{id}")]
+        public string GetAsync(int id)
+        {
+            var todoItem = _context.Part.AsNoTracking().Where(s => s.PartId == id).ToList();
+
+            return todoItem[0].PartName;
+
+        }
+        
+
         // GET: api/Part/5
         [HttpGet("getget")]
         public async Task<IActionResult> GetgetAsync(int id, int count)
@@ -71,7 +78,7 @@ namespace SmartMaintenanceWebApi.Controllers
 
 
         // PUT: api/Order/5
-        [HttpPut("add/{id}")]
+        [HttpPut("add/{id}/{quantity}")]
         public async Task<IActionResult> AddAsync(int id, int quantity)
         {
 

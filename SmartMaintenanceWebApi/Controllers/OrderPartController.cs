@@ -33,7 +33,7 @@ namespace SmartMaintenanceWebApi.Controllers
         */
 
         // GET: api/OrderPart/5
-        [HttpGet("{id}")]
+        [HttpGet("getspecific/{id}")]
         public IEnumerable<OrderPart> GetAsync(int id)
         {
             var todoItem = _context.OrderPart.AsNoTracking().Where(s => s.OrderId == id).ToList();

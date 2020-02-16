@@ -39,14 +39,14 @@ namespace SmartMaintenanceWebApi.Controllers
         }
         */
 
-            /*
-        // GET: api/Order/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-        */
+        /*
+    // GET: api/Order/5
+    [HttpGet("{id}", Name = "Get")]
+    public string Get(int id)
+    {
+        return "value";
+    }
+    */
 
         // POST: api/Order
         /*
@@ -55,6 +55,16 @@ namespace SmartMaintenanceWebApi.Controllers
         {
         }
         */
+
+        // GET: api/OrderPart/5
+        [HttpGet("getspecific/{id}")]
+        public IEnumerable<Order> GetAsync(int id)
+        {
+            var todoItem = _context.Order.Where(s => s.OrderId == id).ToList();
+
+            return todoItem;
+
+        }
 
         // POST: api/<controller>
         [HttpPost("create")]
