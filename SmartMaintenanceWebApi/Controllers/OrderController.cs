@@ -66,6 +66,27 @@ namespace SmartMaintenanceWebApi.Controllers
 
         }
 
+
+        // GET: api/OrderPart/5
+        [HttpGet("getapproved")]
+        public IEnumerable<Order> GetApproved(int id)
+        {
+            var todoItem = _context.Order.Where(s => s.OrderApprove == 1).ToList();
+
+            return todoItem;
+
+        }
+
+        // GET: api/OrderPart/5
+        [HttpGet("getunapproved")]
+        public IEnumerable<Order> GetUnApproved(int id)
+        {
+            var todoItem = _context.Order.Where(s => s.OrderApprove == 0).ToList();
+
+            return todoItem;
+
+        }
+
         // POST: api/<controller>
         [HttpPost("create")]
         public async Task<ActionResult<Order>> CreateOrder([FromBody] Order item)
