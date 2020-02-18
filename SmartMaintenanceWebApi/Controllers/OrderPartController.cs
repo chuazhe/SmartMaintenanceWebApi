@@ -15,7 +15,6 @@ namespace SmartMaintenanceWebApi.Controllers
     {
 
         private readonly OrderPartContext _context;
-        private readonly PartContext _context2;
 
 
         public OrderPartController(OrderPartContext context)

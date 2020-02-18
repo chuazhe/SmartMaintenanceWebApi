@@ -98,7 +98,7 @@ namespace SmartMaintenanceWebApi.Controllers
         }
 
         // PUT: api/Order/5
-        [HttpPut("minus/{id}")]
+        [HttpPut("minus/{id}/{quantity}")]
         public async Task<IActionResult> MinusAsync(int id, int quantity)
         {
 

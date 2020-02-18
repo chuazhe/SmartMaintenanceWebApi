@@ -62,6 +62,16 @@ namespace SmartMaintenanceWebApi.Controllers
 
         }
 
+        // GET: api/OrderPart/5
+        [HttpGet("getUnused/{id}")]
+        public IEnumerable<Maintenance> GetAsync2(int id)
+        {
+            var todoItem = _context.Maintenance.AsNoTracking().Where(s => s.AircraftId == id && s.MaintenanceUsed==0).ToList();
+
+            return todoItem;
+
+        }
+
 
         // POST: api/<controller>
         [HttpPost("create")]

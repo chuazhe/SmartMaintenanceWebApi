@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "2c5d5ece1910400d309eda823321a354b9b7be41"
+    "signature": "9b92d5822dc9c7c579acfaf5766f1a7726586cff"
   },
   "compilationOptions": {
     "defines": [
@@ -24,6 +24,9 @@
     ".NETCoreApp,Version=v2.2": {
       "SmartMaintenanceWebApi/1.0.0": {
         "dependencies": {
+          "Hangfire.AspNetCore": "1.7.9",
+          "Hangfire.Core": "1.7.9",
+          "Hangfire.SqlServer": "1.7.9",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.Azure.NotificationHubs": "3.2.1",
@@ -35,6 +38,71 @@
         },
         "compile": {
           "SmartMaintenanceWebApi.dll": {}
+        }
+      },
+      "Hangfire.AspNetCore/1.7.9": {
+        "dependencies": {
+          "Hangfire.Core": "1.7.9",
+          "Microsoft.AspNetCore.Antiforgery": "2.2.0",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Hangfire.AspNetCore.dll": {
+            "assemblyVersion": "1.7.9.0",
+            "fileVersion": "1.7.9.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Hangfire.AspNetCore.dll": {}
+        }
+      },
+      "Hangfire.Core/1.7.9": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Hangfire.Core.dll": {
+            "assemblyVersion": "1.7.9.0",
+            "fileVersion": "1.7.9.0"
+          }
+        },
+        "resources": {
+          "lib/netstandard2.0/es/Hangfire.Core.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard2.0/nl/Hangfire.Core.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/netstandard2.0/pt-BR/Hangfire.Core.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard2.0/zh-TW/Hangfire.Core.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/netstandard2.0/zh/Hangfire.Core.resources.dll": {
+            "locale": "zh"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Hangfire.Core.dll": {}
+        }
+      },
+      "Hangfire.SqlServer/1.7.9": {
+        "dependencies": {
+          "Hangfire.Core": "1.7.9",
+          "System.Data.SqlClient": "4.6.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Hangfire.SqlServer.dll": {
+            "assemblyVersion": "1.7.9.0",
+            "fileVersion": "1.7.9.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Hangfire.SqlServer.dll": {}
         }
       },
       "Microsoft.Azure.NotificationHubs/3.2.1": {
@@ -3560,6 +3628,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Hangfire.AspNetCore/1.7.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KY2JlteawK3oozv59WKzuBRy90lcRailvVSeYK8yJzYoae7YrluyP8LPUzGefajWDQSfFqskG3vyKJTOJINnjg==",
+      "path": "hangfire.aspnetcore/1.7.9",
+      "hashPath": "hangfire.aspnetcore.1.7.9.nupkg.sha512"
+    },
+    "Hangfire.Core/1.7.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CmJ5MRUn7pxUUtuqcLubzzXktcPRQiV3S98jtin0x0a+Lvflm5evBJpTD3/6Do9u88y4gfij6aCR7WRGCVL5Hg==",
+      "path": "hangfire.core/1.7.9",
+      "hashPath": "hangfire.core.1.7.9.nupkg.sha512"
+    },
+    "Hangfire.SqlServer/1.7.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wqpAe5WhzDjXGM4cOUbENazkiBogn8mc5Dpk9Qp1tnngqW5XW2iETP1tE5pUpa2Q870TxOCrnurvQNRCAvMuvA==",
+      "path": "hangfire.sqlserver/1.7.9",
+      "hashPath": "hangfire.sqlserver.1.7.9.nupkg.sha512"
     },
     "Microsoft.Azure.NotificationHubs/3.2.1": {
       "type": "package",
