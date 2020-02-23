@@ -183,7 +183,7 @@ namespace SmartMaintenanceWebApi.Controllers
         public void setNoti(int second, int AircraftId)
         {
             NotificationsMessage item = new NotificationsMessage();
-            item.msg = "Aircraft " +AircraftId + " is scheduled to be held now.";
+            item.msg = "Maintenance of Aircraft " +AircraftId + " is scheduled to be held now.";
 
             
             BackgroundJob.Schedule(() => Debug.WriteLine("check"),
