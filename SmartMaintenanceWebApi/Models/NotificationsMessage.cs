@@ -9,5 +9,9 @@ namespace SmartMaintenanceWebApi.Models
     {
         public string msg { get; set; }
 
+        public int manager { get; set; }
+
+        
+
     }
 }

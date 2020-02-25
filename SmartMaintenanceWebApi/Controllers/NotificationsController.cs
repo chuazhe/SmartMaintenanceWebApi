@@ -138,6 +138,7 @@ namespace SmartMaintenanceWebApi.Controllers
             var user = "Test User";
             var pns = "fcm";
             var message = item.msg;
+            var manager = item.manager; 
 
             Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
             HttpStatusCode ret = HttpStatusCode.InternalServerError;
@@ -157,7 +158,7 @@ namespace SmartMaintenanceWebApi.Controllers
                     break;
                 case "fcm":
                     // Android
-                    var notif = "{ \"data\" : {\"message\":\"" + message + "\"}}";
+                    var notif = "{ \"data\" : {\"message\":\"" + message + "\",\"manager\":\"" + manager + "\"}}";
                     outcome = await Notifications.Instance.Hub.SendFcmNativeNotificationAsync(notif);
                     break;
             }
@@ -184,6 +185,7 @@ namespace SmartMaintenanceWebApi.Controllers
         {
             NotificationsMessage item = new NotificationsMessage();
             item.msg = "Maintenance of Aircraft " +AircraftId + " is scheduled to be held now.";
+            item.manager = 0;
 
             
             BackgroundJob.Schedule(() => Debug.WriteLine("check"),
