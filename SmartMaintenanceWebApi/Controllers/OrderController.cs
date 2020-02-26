@@ -122,8 +122,8 @@ namespace SmartMaintenanceWebApi.Controllers
         }
 
         // PUT: api/Order/5
-        [HttpPut("approve/{id}")]
-        public async Task<IActionResult> ApproveAsync(int id)
+        [HttpPut("approve/{id}/{date}")]
+        public async Task<IActionResult> ApproveAsync(int id, string date)
         {
 
             var todoItem = await _context.Order.FindAsync(id);
@@ -132,6 +132,7 @@ namespace SmartMaintenanceWebApi.Controllers
             {
 
                 todoItem.OrderApprove = 1;
+                todoItem.OrderApproveDate = date;
                 _context.Entry(todoItem).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
 
