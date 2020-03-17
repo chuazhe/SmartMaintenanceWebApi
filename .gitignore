@@ -1,3 +1,4 @@
 
 SmartMaintenanceWebApi/appsettings.json
 SmartMaintenanceWebApi/Models/Notifications.cs
+SmartMaintenanceWebApi/Controllers/NotificationsController.cs

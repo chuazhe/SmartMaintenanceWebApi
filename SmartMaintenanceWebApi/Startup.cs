@@ -143,6 +143,9 @@ Configuration["Data:SmartMaintenanceDatabase:ConnectionString"]));
             app.UseAuthentication();
 
             app.UseMvc();
+
+            app.UseHangfireDashboard();
+
         }
     }
 }
