@@ -73,6 +73,26 @@ namespace SmartMaintenanceWebApi.Controllers
 
         }
 
+        // GET: api/OrderPart/5
+        [HttpGet("getDone")]
+        public IEnumerable<Maintenance> GetDone()
+        {
+            var todoItem = _context.Maintenance.Where(s => s.MaintenanceUsed == 1).ToList();
+
+            return todoItem;
+
+        }
+
+        // GET: api/OrderPart/5
+        [HttpGet("getUndone")]
+        public IEnumerable<Maintenance> GetUndone()
+        {
+            var todoItem = _context.Maintenance.Where(s => s.MaintenanceUsed == 0).ToList();
+
+            return todoItem;
+
+        }
+
 
 
         // POST: api/<controller>
