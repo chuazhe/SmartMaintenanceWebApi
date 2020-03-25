@@ -11,23 +11,44 @@ namespace SmartMaintenanceWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AircraftPartController : ControllerBase
+    public class EngineController : Controller
     {
+        private readonly EngineContext _context;
 
-        private readonly AircraftPartContext _context;
-
-        public AircraftPartController(AircraftPartContext context)
+        public EngineController(EngineContext context)
         {
             this._context = context;
         }
 
+
+        /*
         // GET: api/Engine
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
+        */
 
+
+        // GET: api/<controller>
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Engine>>> GetAll()
+        {
+            return await _context.Engine.ToListAsync();
+        }
+
+
+        // GET: api/OrderPart/5
+        [HttpGet("getspecificname/{id}")]
+        public string GetAsync(int id)
+        {
+            var todoItem = _context.Engine.AsNoTracking().Where(s => s.EngineId == id).ToList();
+
+            return todoItem[0].EngineName;
+
+        }
+        /*
         // GET: api/Engine/5
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
@@ -35,15 +56,7 @@ namespace SmartMaintenanceWebApi.Controllers
             return "value";
         }
 
-
-        [HttpGet("getspecific/{id}")]
-        public IEnumerable<AircraftPart> GetAsync(int id)
-        {
-            var todoItem = _context.AircraftPart.AsNoTracking().Where(s => s.AircraftId == id).ToList();
-
-            return todoItem;
-
-        }
+        /*
 
         // POST: api/Engine
         [HttpPost]
@@ -62,5 +75,6 @@ namespace SmartMaintenanceWebApi.Controllers
         public void Delete(int id)
         {
         }
+        */
     }
 }
