@@ -8,9 +8,7 @@ namespace SmartMaintenanceWebApi.Models
 {
     public class EnginePart
     {
-        [Key]
         public int EngineId { get; set; }
-
         public int PartId { get; set; }
     }
 }

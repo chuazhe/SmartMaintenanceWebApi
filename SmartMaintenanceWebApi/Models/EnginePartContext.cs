@@ -30,6 +30,8 @@ namespace SmartMaintenanceWebApi.Models
              */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+                    modelBuilder.Entity<EnginePart>()
+            .HasKey(o => new { o.EngineId, o.PartId});
         }
     }
 }
