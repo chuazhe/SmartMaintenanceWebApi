@@ -40,7 +40,45 @@ namespace SmartMaintenanceWebApi.Controllers
         }
 
 
-        
+        // POST: api/<controller>
+        [HttpPost("create")]
+        public async Task<ActionResult<Part>> CreatePart([FromBody] Part item)
+        {
+            try
+            {
+                item.PartId = getTopId() + 1;
+                //item.PartName = item.PartName;
+                //item.PartCount = item.PartCount;
+                _context.Part.Add(item);
+                await _context.SaveChangesAsync();
+
+                /*
+                return StatusCode(200);
+                */
+                //return http 200
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return StatusCode(500);
+            }
+
+
+
+            //return http 201 created
+            //return CreatedAtAction(nameof(Get), new { id = item.Id, name=item.Name}, item);
+        }
+
+        [HttpGet("gettop")]
+        public int getTopId()
+        {
+            var x = _context.Part.Last().PartId;
+            return x;
+        }
+
+
+
         // GET: api/OrderPart/5
         [HttpGet("getspecificname/{id}")]
         public string GetAsync(int id)
