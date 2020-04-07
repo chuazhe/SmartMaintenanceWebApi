@@ -155,6 +155,26 @@ namespace SmartMaintenanceWebApi.Controllers
 
         }
 
+
+        // PUT: api/Order/5
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+
+            var todoItem = await _context.Part.FindAsync(id);
+
+            if (todoItem != null)
+            {
+
+                _context.Part.Remove(todoItem);
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            return NotFound();
+
+        }
+
         // PUT: api/Part/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
