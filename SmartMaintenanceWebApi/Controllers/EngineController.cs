@@ -48,33 +48,91 @@ namespace SmartMaintenanceWebApi.Controllers
             return todoItem[0].EngineName;
 
         }
-        /*
-        // GET: api/Engine/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+
+
+        // PUT: api/Order/5
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            return "value";
+
+            var todoItem = await _context.Engine.FindAsync(id);
+
+            if (todoItem != null)
+            {
+
+                _context.Engine.Remove(todoItem);
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            return NotFound();
+
         }
 
-        /*
-
-        // POST: api/Engine
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // POST: api/<controller>
+        [HttpPost("create")]
+        public async Task<ActionResult<Engine>> CreatePart([FromBody] Engine item)
         {
+            try
+            {
+                item.EngineId = getTopId() + 1;
+                //item.PartName = item.PartName;
+                //item.PartCount = item.PartCount;
+                _context.Engine.Add(item);
+                await _context.SaveChangesAsync();
+
+                /*
+                return StatusCode(200);
+                */
+                //return http 200
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return StatusCode(500);
+            }
         }
 
-        // PUT: api/Engine/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+            [HttpGet("gettop")]
+        public int getTopId()
         {
+            var x = _context.Engine.Last().EngineId;
+            return x;
         }
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-        */
+
+        //return http 201 created
+        //return CreatedAtAction(nameof(Get), new { id = item.Id, name=item.Name}, item);
     }
+
+    /*
+    // GET: api/Engine/5
+    [HttpGet("{id}", Name = "Get")]
+    public string Get(int id)
+    {
+        return "value";
+    }
+
+    /*
+
+    // POST: api/Engine
+    [HttpPost]
+    public void Post([FromBody] string value)
+    {
+    }
+
+    // PUT: api/Engine/5
+    [HttpPut("{id}")]
+    public void Put(int id, [FromBody] string value)
+    {
+    }
+
+    // DELETE: api/ApiWithActions/5
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
+    }
+    */
 }
+
