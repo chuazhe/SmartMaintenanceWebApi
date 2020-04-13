@@ -38,6 +38,58 @@ namespace SmartMaintenanceWebApi.Controllers
 
         }
 
+        // POST: api/<controller>
+        [HttpPost("create")]
+        public async Task<ActionResult<EnginePart>> CreateEnginePart([FromBody] AircraftEngine item)
+        {
+            try
+            {
+                _context.AircraftEngine.Add(item);
+                await _context.SaveChangesAsync();
+
+                /*
+                return StatusCode(200);
+                */
+                //return http 200
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return StatusCode(500);
+            }
+
+            //return http 201 created
+            //return CreatedAtAction(nameof(Get), new { id = item.Id, name=item.Name}, item);
+        }
+
+        // POST: api/<controller>
+        [HttpPost("delete")]
+        public async Task<ActionResult<EnginePart>> DeleteEnginePart([FromBody] AircraftEngine item)
+        {
+            try
+            {
+                //var todoItem = _context.EnginePart.AsNoTracking().Where(s => s.EngineId == item.EngineId && s.PartId==item.PartId);
+
+                _context.AircraftEngine.Remove(item);
+                await _context.SaveChangesAsync();
+
+                /*
+                return StatusCode(200);
+                */
+                //return http 200
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return StatusCode(500);
+            }
+
+            //return http 201 created
+            //return CreatedAtAction(nameof(Get), new { id = item.Id, name=item.Name}, item);
+        }
+
 
         /*
         // GET: api/AircraftEngine

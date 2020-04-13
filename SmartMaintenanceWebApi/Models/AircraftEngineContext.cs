@@ -31,6 +31,8 @@ namespace SmartMaintenanceWebApi.Models
              */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<AircraftEngine>()
+.HasKey(o => new { o.AircraftId, o.EngineId });
         }
     }
 }

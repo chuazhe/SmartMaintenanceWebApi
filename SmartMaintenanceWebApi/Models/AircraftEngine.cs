@@ -10,7 +10,6 @@ namespace SmartMaintenanceWebApi.Models
     {
         [Key]
         public int AircraftId { get; set; }
-
         public int EngineId { get; set; }
     }
 }
