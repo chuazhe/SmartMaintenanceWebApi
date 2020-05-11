@@ -105,34 +105,5 @@ namespace SmartMaintenanceWebApi.Controllers
         //return http 201 created
         //return CreatedAtAction(nameof(Get), new { id = item.Id, name=item.Name}, item);
     }
-
-    /*
-    // GET: api/Engine/5
-    [HttpGet("{id}", Name = "Get")]
-    public string Get(int id)
-    {
-        return "value";
-    }
-
-    /*
-
-    // POST: api/Engine
-    [HttpPost]
-    public void Post([FromBody] string value)
-    {
-    }
-
-    // PUT: api/Engine/5
-    [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
-    {
-    }
-
-    // DELETE: api/ApiWithActions/5
-    [HttpDelete("{id}")]
-    public void Delete(int id)
-    {
-    }
-    */
 }
 

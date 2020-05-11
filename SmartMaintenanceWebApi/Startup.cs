@@ -34,10 +34,6 @@ namespace SmartMaintenanceWebApi
 options.UseSqlServer(
 Configuration["Data:SmartMaintenanceIdentity:ConnectionString"]));
 
-            services.AddDbContext<TestTableContext>(options =>
-options.UseSqlServer(
-Configuration["Data:SmartMaintenanceDatabase:ConnectionString"]));
-
             services.AddDbContext<AircraftContext>(options =>
 options.UseSqlServer(
 Configuration["Data:SmartMaintenanceDatabase:ConnectionString"]));

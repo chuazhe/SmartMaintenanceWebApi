@@ -22,15 +22,6 @@ namespace SmartMaintenanceWebApi.Controllers
             this._context = context;
         }
 
-        /*
-        // GET: api/OrderPart
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-        */
-
         // GET: api/OrderPart/5
         [HttpGet("getspecific/{id}")]
         public IEnumerable<OrderPart> GetAsync(int id)

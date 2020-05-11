@@ -33,7 +33,5 @@ namespace SmartMaintenanceWebApi.Models
         public int s20 { get; set; }
         public int s21 { get; set; }
 
-
-
     }
 }

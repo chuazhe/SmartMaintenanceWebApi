@@ -24,30 +24,12 @@ namespace SmartMaintenanceWebApi.Controllers
 
         }
 
-        // GET: api/Aircraft
-        /*
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-        */
-
         // GET: api/<controller>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Aircraft>>> GetAll()
         {
             return await _context.Aircraft.ToListAsync();
         }
-
-        /*
-        // GET: api/Aircraft/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-        */
 
         [HttpPut("maintenance/{id}")]
         public async Task<IActionResult> MaintenanceAsync(int id)
@@ -85,24 +67,6 @@ namespace SmartMaintenanceWebApi.Controllers
             }
             return NotFound();
 
-        }
-
-        // POST: api/Aircraft
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/Aircraft/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

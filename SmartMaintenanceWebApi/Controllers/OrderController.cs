@@ -30,31 +30,6 @@ namespace SmartMaintenanceWebApi.Controllers
             return await _context.Order.ToListAsync();
         }
 
-        /*
-        // GET: api/Order
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-        */
-
-        /*
-    // GET: api/Order/5
-    [HttpGet("{id}", Name = "Get")]
-    public string Get(int id)
-    {
-        return "value";
-    }
-    */
-
-        // POST: api/Order
-        /*
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-        */
 
         // GET: api/OrderPart/5
         [HttpGet("getspecific/{id}")]
