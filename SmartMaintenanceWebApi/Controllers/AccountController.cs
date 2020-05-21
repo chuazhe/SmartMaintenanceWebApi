@@ -47,27 +47,27 @@ namespace SmartMaintenanceWebApi.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel text)
         {
-                //This method locates a user account using the e-mail address that was used to create it.
-                AppUser user = await userManager.FindByEmailAsync(text.Email);
-                if (user != null)
-                {
-                    // await = asynchronous
-                    // SignOutAsync method cancels any existing session that the user has
-                    await signInManager.SignOutAsync();
-                   
-                    // PasswordSignIn method performs the authentication
-                    Microsoft.AspNetCore.Identity.SignInResult result =
-                    await signInManager.PasswordSignInAsync(
-                    user, text.Password, false, false);
+            //This method locates a user account using the e-mail address that was used to create it.
+            AppUser user = await userManager.FindByEmailAsync(text.Email);
+            if (user != null)
+            {
+                // await = asynchronous
+                // SignOutAsync method cancels any existing session that the user has
+                await signInManager.SignOutAsync();
 
-                    if (result.Succeeded)
-                    {
+                // PasswordSignIn method performs the authentication
+                Microsoft.AspNetCore.Identity.SignInResult result =
+                await signInManager.PasswordSignInAsync(
+                user, text.Password, false, false);
+
+                if (result.Succeeded)
+                {
 
                     string userId = await userManager.GetUserIdAsync(user);
                     // Get a list of role that is assigned to the user
                     var userRoles = await userManager.GetRolesAsync(user);
                     Console.WriteLine(userRoles[0]);
-                    Console.WriteLine(userRoles+userId);
+                    Console.WriteLine(userRoles + userId);
 
                     // authentication successful so generate jwt token
                     var tokenHandler = new JwtSecurityTokenHandler();
@@ -88,16 +88,16 @@ namespace SmartMaintenanceWebApi.Controllers
                         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                     };
                     var token = tokenHandler.CreateToken(tokenDescriptor);
-                    var token2= tokenHandler.WriteToken(token);
+                    var token2 = tokenHandler.WriteToken(token);
 
 
                     //If login success, store the email to the session variable
                     //HttpContext.Session.SetString("SessionEmail", details.Email);           
                     // redirect the user to the returnUrl location if it is true and if it is false, add a validation error and redisplay the Login view to the user so they can try again.
                     return Ok(token2.ToString());
-              
-                    }
-                
+
+                }
+
             }
             return Unauthorized();
         }

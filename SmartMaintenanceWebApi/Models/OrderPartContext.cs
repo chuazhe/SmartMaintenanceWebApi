@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartMaintenanceWebApi.Models
 {
-    public class OrderPartContext: DbContext
+    public class OrderPartContext : DbContext
     {
         //For OnConfiguring
         public OrderPartContext()

@@ -75,7 +75,7 @@ namespace SmartMaintenanceWebApi.Controllers
             return todoItem[0].PartName;
 
         }
-        
+
 
         // GET: api/Part/5
         [HttpGet("getget")]
@@ -85,7 +85,7 @@ namespace SmartMaintenanceWebApi.Controllers
 
             if (todoItem != null)
             {
-                if(todoItem.PartCount>=count)
+                if (todoItem.PartCount >= count)
                 {
                     return Ok(new { success = true });
                 }

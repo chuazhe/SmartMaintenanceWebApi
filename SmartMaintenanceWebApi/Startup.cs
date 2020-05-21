@@ -121,6 +121,7 @@ Configuration["Data:SmartMaintenanceDatabase:ConnectionString"]));
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
 
+            // add HangFire Server for schedulling
             services.AddHangfire(configuration => configuration
     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
     .UseSimpleAssemblyNameTypeSerializer()

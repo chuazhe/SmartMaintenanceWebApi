@@ -24,7 +24,7 @@ namespace SmartMaintenanceWebApi.Controllers
             this._context = context;
         }
 
-        
+
         // GET: api/<controller>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Maintenance>>> GetAll()
@@ -47,7 +47,7 @@ namespace SmartMaintenanceWebApi.Controllers
         [HttpGet("getUnused/{id}")]
         public IEnumerable<Maintenance> GetAsync2(int id)
         {
-            var todoItem = _context.Maintenance.AsNoTracking().Where(s => s.AircraftId == id && s.MaintenanceUsed==0).ToList();
+            var todoItem = _context.Maintenance.AsNoTracking().Where(s => s.AircraftId == id && s.MaintenanceUsed == 0).ToList();
 
             return todoItem;
 
@@ -81,7 +81,7 @@ namespace SmartMaintenanceWebApi.Controllers
         {
             try
             {
-                item.MaintenanceId = getTopId()+1;
+                item.MaintenanceId = getTopId() + 1;
                 item.MaintenanceUsed = 0;
                 _context.Maintenance.Add(item);
                 await _context.SaveChangesAsync();

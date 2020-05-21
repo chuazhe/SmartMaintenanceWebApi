@@ -11,7 +11,7 @@ namespace SmartMaintenanceWebApi.Models
 
         public int manager { get; set; }
 
-        
+
 
     }
 }

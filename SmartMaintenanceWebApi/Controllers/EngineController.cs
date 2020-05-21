@@ -94,7 +94,7 @@ namespace SmartMaintenanceWebApi.Controllers
             }
         }
 
-            [HttpGet("gettop")]
+        [HttpGet("gettop")]
         public int getTopId()
         {
             var x = _context.Engine.Last().EngineId;

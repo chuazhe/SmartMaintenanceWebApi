@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartMaintenanceWebApi.Models
 {
-    public class EnginePartContext: DbContext
+    public class EnginePartContext : DbContext
     {
         //For OnConfiguring
         public EnginePartContext()
@@ -30,8 +30,8 @@ namespace SmartMaintenanceWebApi.Models
              */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-                    modelBuilder.Entity<EnginePart>()
-            .HasKey(o => new { o.EngineId, o.PartId});
+            modelBuilder.Entity<EnginePart>()
+    .HasKey(o => new { o.EngineId, o.PartId });
         }
     }
 }

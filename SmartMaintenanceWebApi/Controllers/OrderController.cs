@@ -68,7 +68,7 @@ namespace SmartMaintenanceWebApi.Controllers
         {
             try
             {
-                item.OrderId=getTopId() + 1;
+                item.OrderId = getTopId() + 1;
                 _context.Order.Add(item);
                 await _context.SaveChangesAsync();
                 /*
