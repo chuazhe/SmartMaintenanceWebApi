@@ -30,6 +30,16 @@ namespace SmartMaintenanceWebApi.Controllers
 
         }
 
+        // GET: api/OrderPart/5
+        [HttpGet("getspecificcount/{id}")]
+        public int GetAsync2(int id)
+        {
+            var todoItem = _context.EnginePart.AsNoTracking().Where(s => s.PartId == id).ToList();
+
+            return todoItem.Count;
+
+        }
+
         // POST: api/<controller>
         [HttpPost("create")]
         public async Task<ActionResult<EnginePart>> CreateEnginePart([FromBody] EnginePart item)

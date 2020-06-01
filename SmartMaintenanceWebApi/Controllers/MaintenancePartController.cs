@@ -21,6 +21,16 @@ namespace SmartMaintenanceWebApi.Controllers
             this._context = context;
         }
 
+        // GET: api/OrderPart/5
+        [HttpGet("getspecificcount/{id}")]
+        public int GetAsync2(int id)
+        {
+            var todoItem = _context.MaintenancePart.AsNoTracking().Where(s => s.PartId == id).ToList();
+
+            return todoItem.Count;
+
+        }
+
 
         // GET: api/OrderPart/5
         [HttpGet("getspecific/{id}")]
